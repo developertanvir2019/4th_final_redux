@@ -18,16 +18,16 @@ const BookList = () => {
 
     console.log('777', allBooks);
     return (
-        <div class="order-2 xl:-order-1">
-            <div class="flex items-center justify-between mb-12">
-                <h4 class="mt-2 text-xl font-bold">Book List</h4>
+        <div className="order-2 xl:-order-1">
+            <div className="flex items-center justify-between mb-12">
+                <h4 className="mt-2 text-xl font-bold">Book List</h4>
 
-                <div class="flex items-center space-x-4">
-                    <button onClick={() => handleStatusChange('All')} class={`filter-btn ${allfilter?.status === "All" && "active-filter"}`} id="lws-filterAll">All</button>
-                    <button onClick={() => handleStatusChange('Featured')} class={`filter-btn ${allfilter?.status === "Featured" && "active-filter"}`} id="lws-filterFeatured">Featured</button>
+                <div className="flex items-center space-x-4">
+                    <button onClick={() => handleStatusChange('All')} className={`filter-btn ${allfilter?.status === "All" && "active-filter"}`} id="lws-filterAll">All</button>
+                    <button onClick={() => handleStatusChange('Featured')} className={`filter-btn ${allfilter?.status === "Featured" && "active-filter"}`} id="lws-filterFeatured">Featured</button>
                 </div>
             </div>
-            <div class="lws-bookContainer">
+            <div className="lws-bookContainer">
                 {/* <!-- Card 1 --> */}
 
                 {
