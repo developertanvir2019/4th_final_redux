@@ -1,24 +1,23 @@
-import logo from './logo.svg';
 import './App.css';
+import Navbar from './Components/Navbar';
+import BookList from './Components/BookList';
+import BookForm from './Components/BookForm';
+import { Provider } from "react-redux"
+import store from './redux/store';
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Provider store={store}>
+      <div>
+        <Navbar />
+        <main class="py-12 2xl:px-6">
+          <div class="container grid xl:grid-cols-[auto_350px] 2xl:grid-cols-[auto_400px] gap-4 2xl:gap-8">
+            <BookList />
+            <BookForm />
+          </div>
+        </main>
+      </div>
+    </Provider>
   );
 }
 
