@@ -1,22 +1,45 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import Book from './Book';
 import { useDispatch, useSelector } from 'react-redux';
 import fetchBooks from '../redux/books/thunk/fetchBooks';
 import { statusChange } from '../redux/filter/action';
 
-const BookList = () => {
+const BookList = ({ searchText }) => {
+    const [isEdit, setIsEdit] = useState(false);
+    const [isEditId, setIsEditId] = useState(false);
+    const [currentNote, setCurrentNote] = useState("");
+    const allBooks = useSelector(state => state.books)
+    const allfilter = useSelector(state => state.filter)
     const dispatch = useDispatch();
     useEffect(() => {
         dispatch(fetchBooks)
     }, [dispatch])
-    const allBooks = useSelector(state => state.books)
-    const allfilter = useSelector(state => state.filter)
     const handleStatusChange = (status) => {
         dispatch(statusChange(status))
     }
 
+    const handleUpdate = (noteValue) => {
+        setIsEdit(true);
+        setCurrentNote(noteValue?.text);
+        setIsEditId(noteValue?._id)
+    };
+    const handlePostBook = async () => {
+        if (isEdit) {
+            setCurrentNote("");
+            setIsEdit(false)
+            // dispatch(Update_Note(notesForPost));
+        } else {
+            try {
+                setCurrentNote("");
+                // dispatch(Create_Note(notesForPost));
+            } catch (error) {
+                console.log(error);
+            }
+        }
+    };
 
-    console.log('777', allBooks);
+
+
     return (
         <div className="order-2 xl:-order-1">
             <div className="flex items-center justify-between mb-12">
@@ -43,7 +66,7 @@ const BookList = () => {
                                 return true;
                         }
                     })
-
+                        .filter(book => book?.name?.toLowerCase().includes(searchText?.toLowerCase()))
                         .map(book => <Book key={book.id} book={book} />)
                 }
 

@@ -7,3 +7,18 @@ export const loaded = (books) => {
         payload: books
     }
 }
+
+
+export const deleteBook = (bookId) => {
+    return {
+        type: DELETED,
+        payload: bookId
+    }
+}
+
+export const added = (bookData) => {
+    return {
+        type: ADDED,
+        payload: bookData
+    }
+}
