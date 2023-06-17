@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
+import { useDispatch } from 'react-redux';
 import addBook from '../redux/books/thunk/addBook';
 import fetchBooks from '../redux/books/thunk/fetchBooks';
 
