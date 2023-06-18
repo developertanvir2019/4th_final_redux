@@ -1,0 +1,1 @@
+This project is totally based on redux and redux thunk.
