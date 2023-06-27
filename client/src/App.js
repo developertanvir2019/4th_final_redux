@@ -1,4 +1,4 @@
-import './App.css';
+import './SASS/style.scss';
 import Navbar from './Components/Navbar';
 import BookList from './Components/BookList';
 import BookForm from './Components/BookForm';
