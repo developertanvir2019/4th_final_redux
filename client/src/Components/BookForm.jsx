@@ -18,7 +18,6 @@ const BookForm = () => {
     const handleInputChange = (event) => {
         const { name, value, type, checked } = event.target;
         const inputValue = type === 'checkbox' ? checked : value;
-
         setBookData((prevData) => ({
             ...prevData,
             [name]: inputValue
